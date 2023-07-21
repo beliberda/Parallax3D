@@ -75,20 +75,23 @@ body {
   background: none;
   color: white;
   text-transform: uppercase;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 25px;
   transition: 0.5s;
-  border: 2px solid rgba(0, 0, 0, 0.496);
+  border: 1px solid rgba(0, 0, 0, 0.496);
 }
 .button-start:hover {
   transform: scale(110%);
-  background-color: rgba(0, 0, 0, 0.518);
+  -webkit-text-stroke-width: 0.4px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+  background-color: rgba(59, 118, 45, 0.255);
+  color: rgba(255, 255, 255, 0);
 }
 .button-start:active {
   transition: 0.1s;
   transform: scale(110%);
-  background-color: rgba(94, 202, 67, 0.518);
+  background-color: rgba(43, 90, 31, 0.241);
 }
