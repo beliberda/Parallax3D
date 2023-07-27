@@ -6,7 +6,7 @@
 }
 /* Обращаемся к корневому элементу, то есть html. Здесь удобно объявлять переменные */
 :root {
-  --transition: 1s cubic-bezier(0.125, 0.495, 0.000, 1.000);
+  --transition: 1s cubic-bezier(0.125, 0.495, 0, 1);
 }
 /* Подключаем шрифты локально */
 @font-face {
@@ -16,7 +16,6 @@
   src: url(../fonts/kamerik205-heavy.woff2);
   /* Указываем размер шрифта */
   font-weight: 900;
-
 }
 @font-face {
   font-family: meeriweather-italik-3d;
@@ -109,28 +108,32 @@ body {
   /* background-color: rgba(43, 90, 31, 0.241); */
 }
 
-
 /* Расположение слоев по уровню */
 
 .layer-1 {
   transform: translateZ(-150px) scale(1.88);
 }
 .layer-2 {
-  transform: translateZ(80px) scale(.88);
+  transform: translateZ(80px) scale(0.88);
 }
 .layer-3 {
-  transform: translateZ(180px) scale(.58);
+  transform: translateZ(180px) scale(0.58);
 }
 .layer-4 {
-  transform: translateZ(190px) scale(.88);
+  transform: translateZ(190px) scale(0.88);
 }
 .layer-5 {
-  transform: translateZ(300px) scale(.88);
+  transform: translateZ(300px) scale(0.88);
 }
 .layer-6 {
-  transform: translateZ(380px) scale(.88);
+  transform: translateZ(380px) scale(0.88);
 }
 
-.layer-4, .layer-5, .layer-6 {
-  pointer-events: none; 
+.layer-4,
+.layer-5,
+.layer-6 {
+  pointer-events: none;
+}
+canvas {
+  width: 100%;
 }
