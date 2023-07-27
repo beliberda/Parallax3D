@@ -6,6 +6,7 @@
 }
 /* Обращаемся к корневому элементу, то есть html. Здесь удобно объявлять переменные */
 :root {
+  --transition: 1s cubic-bezier(0.125, 0.495, 0.000, 1.000);
 }
 /* Подключаем шрифты локально */
 @font-face {
@@ -15,6 +16,7 @@
   src: url(../fonts/kamerik205-heavy.woff2);
   /* Указываем размер шрифта */
   font-weight: 900;
+
 }
 @font-face {
   font-family: meeriweather-italik-3d;
@@ -40,6 +42,10 @@ body {
 .layers__container {
   height: 100vh;
   transform-style: preserve-3d;
+  transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+
+  will-change: transform;
+  transition: transform var(--transition);
 }
 .layers__item {
   position: absolute;
@@ -50,7 +56,7 @@ body {
   inset: -5vw;
   background-size: cover;
   background-position: center;
-  transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+  /* transform: rotateX(var(--move-y)) rotateY(var(--move-x)); */
 }
 .layer-3 {
   display: flex;
@@ -101,4 +107,30 @@ body {
 .button-start:active {
   transform: scale(95%);
   /* background-color: rgba(43, 90, 31, 0.241); */
+}
+
+
+/* Расположение слоев по уровню */
+
+.layer-1 {
+  transform: translateZ(-150px) scale(1.88);
+}
+.layer-2 {
+  transform: translateZ(80px) scale(.88);
+}
+.layer-3 {
+  transform: translateZ(180px) scale(.58);
+}
+.layer-4 {
+  transform: translateZ(190px) scale(.88);
+}
+.layer-5 {
+  transform: translateZ(300px) scale(.88);
+}
+.layer-6 {
+  transform: translateZ(380px) scale(.88);
+}
+
+.layer-4, .layer-5, .layer-6 {
+  pointer-events: none; 
 }
