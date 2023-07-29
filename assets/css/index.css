@@ -52,7 +52,7 @@ body {
     left: -5vw;
     right: -5vw;
     bottom: -5vw; */
-  inset: -5vw;
+  inset: -8vw;
   background-size: cover;
   background-position: center;
   /* transform: rotateX(var(--move-y)) rotateY(var(--move-x)); */
@@ -111,7 +111,7 @@ body {
 /* Расположение слоев по уровню */
 
 .layer-1 {
-  transform: translateZ(-150px) scale(1.88);
+  transform: translateZ(-100px) scale(1.88);
 }
 .layer-2 {
   transform: translateZ(80px) scale(0.88);
