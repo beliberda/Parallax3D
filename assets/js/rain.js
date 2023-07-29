@@ -40,7 +40,7 @@ function RainDrops(x, y, endy, velocity, opacity) {
 
 let rainArray = [];
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 240; i++) {
 	let rainXLocation = Math.floor(Math.random() * window.innerWidth) + 1;
 	let rainYLocation = Math.random()*-500;
 	let randomRainHeight = randomNum(10, 2);
