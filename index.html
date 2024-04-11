@@ -33,11 +33,13 @@
           class="layers__item layer-1"
           style="background-image: url(./assets/images/layer-1.jpg)"
         ></div>
+
         <!-- Также у слоев 1,2,5,6 изображения вставлены через css свойство background-image -->
         <div
           class="layers__item layer-2"
           style="background-image: url(./assets/images/layer-2.png)"
         ></div>
+        <!-- В слое 3 блок с текстом, кнопкой и логотипом -->
         <div class="layers__item layer-3">
           <div
             class="logo"
@@ -58,6 +60,7 @@
             <button class="button-start">rain</button>
           </div>
         </div>
+        <!-- В слое 4 будут отрисовываться капли дождя -->
         <div class="layers__item layer-4">
           <!-- тег canvas нужен для отрисовки графики через js -->
           <canvas class="rain"></canvas>
@@ -73,9 +76,8 @@
         ></div>
       </div>
     </section>
-    <!-- <div style="height: 100vh"></div> -->
   </body>
-  <audio autoplay loop preload="auto">
-    <!-- <source src="./assets/sounds/rain.mp3" type="audio/ogg; codecs=opus" /> -->
+  <audio loop preload="auto">
+    <source src="./assets/sounds/rain.mp3" type="audio/ogg; codecs=opus" />
   </audio>
 </html>

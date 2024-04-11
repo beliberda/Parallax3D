@@ -3,12 +3,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: url("../images/cursor.svg") 1 1, default;
 }
+
 /* Обращаемся к корневому элементу, то есть html. Здесь удобно объявлять переменные */
 :root {
   /* переменная для плавности движения */
   --transition: 1s cubic-bezier(0.125, 0.495, 0, 1);
 }
+
 /* Подключаем шрифты локально */
 @font-face {
   /* называем наш шрифт как угодно 
@@ -20,6 +23,7 @@
   /* Указываем размер шрифта */
   font-weight: 900;
 }
+
 @font-face {
   font-family: meeriweather-italik-3d;
   src: url(../fonts/merriweather-regular-italic.woff2);
@@ -31,6 +35,7 @@ body {
   /* то самое имя шрифта */
   font-family: kamerik-3d;
 }
+
 .logo {
   width: 150px;
   height: 150px;
@@ -44,23 +49,36 @@ body {
 
 .layers__container {
   height: 100vh;
+  /* Свойство transform-style определяет,
+    как будут вести себя потомки элемента в 3D-пространстве при трансформации. Могут ли они пересекать родительский объект или нет  */
   transform-style: preserve-3d;
+
+  /* Тут вся магия трансформации, попробуйте вместо --move-y и x поставить какие-нибудь числа */
   transform: rotateX(var(--move-y)) rotateY(var(--move-x));
 
+  /* Свойство will-change позволяет заранее сообщить браузеру об изменениях (анимация, перемещение и т.д),
+  которые могут произойти с элементом. Так браузер успеет оптимизировать выполнение этих изменений до того,
+  как они произойдут. Это повышает скорость работы сайта. */
   will-change: transform;
+
+  /* Задаем плавность, используя переменную */
   transition: transform var(--transition);
 }
+
 .layers__item {
   position: absolute;
   /* top: -5vw;
     left: -5vw;
     right: -5vw;
-    bottom: -5vw; */
+    bottom: -5vw; 
+    inset - заменяет все 4 свойства, если у них одинаковое число
+    */
   inset: -8vw;
   background-size: cover;
   background-position: center;
-  /* transform: rotateX(var(--move-y)) rotateY(var(--move-x)); */
 }
+
+/* центрируем слой 3 */
 .layer-3 {
   display: flex;
   flex-direction: column;
@@ -70,12 +88,16 @@ body {
   z-index: 100;
   text-align: center;
 }
+
+/* Настриваем блок с логотипом */
 .hero-content {
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
 }
+
+/* Стили для заголовка */
 .hero-content h1 {
   letter-spacing: 5px;
   margin-bottom: 20px;
@@ -87,6 +109,7 @@ body {
 .hero-content__p {
   font-size: 16px;
 }
+
 .button-start {
   margin-top: 20px;
   background: none;
@@ -100,16 +123,18 @@ body {
   transition: 0.5s;
   border: 1px solid rgba(255, 255, 255, 0.496);
 }
+
+
 .button-start:hover {
   transform: scale(110%);
   -webkit-text-stroke-width: 0.4px;
   -webkit-text-stroke-color: rgb(255, 255, 255);
-  /* background-color: rgba(59, 118, 45, 0.255); */
   color: rgba(255, 255, 255, 0);
 }
+
+/* меняем размер кнопки при нажатии */
 .button-start:active {
   transform: scale(95%);
-  /* background-color: rgba(43, 90, 31, 0.241); */
 }
 
 /* Расположение слоев по уровню */
@@ -117,27 +142,35 @@ body {
 .layer-1 {
   transform: translateZ(-100px) scale(1.88);
 }
+
 .layer-2 {
   transform: translateZ(80px) scale(0.88);
 }
+
 .layer-3 {
   transform: translateZ(180px) scale(0.58);
 }
+
 .layer-4 {
   transform: translateZ(190px) scale(0.88);
 }
+
 .layer-5 {
   transform: translateZ(300px) scale(0.88);
 }
+
 .layer-6 {
   transform: translateZ(380px) scale(0.88);
 }
+
 /* Указываем, что у 4 5 и 6 слоев не будет курсора */
 .layer-4,
 .layer-5,
 .layer-6 {
   pointer-events: none;
 }
+
+/* растягиваем блок с дождем на всю ширину */
 canvas {
   width: 100%;
 }

@@ -51,11 +51,14 @@ function RainDrops(x, y, endy, velocity, opacity) {
 let rainArray = [];
 // С помощью цикла for рисуем 1000 капель
 for (let i = 0; i < 1000; i++) {
+	// Задаем координаты случайным образом
 	let rainXLocation = Math.floor(Math.random() * window.innerWidth) + 1;
 	let rainYLocation = Math.random() * -500;
+	// Также задаем случайную высоту, скорость и непрозрачность
 	let randomRainHeight = randomNum(10, 2);
 	let randomSpeed = randomNum(20, 0.2);
 	let randomOpacity = Math.random() * 0.55;
+	// Записываем новую каплю в массив
 	rainArray.push(
 		new RainDrops(
 			rainXLocation,
@@ -68,9 +71,12 @@ for (let i = 0; i < 1000; i++) {
 }
 // анимация падения капли
 function animateRain() {
+	// функция для повышения производительности анимации
 	requestAnimationFrame(animateRain);
+	// ощичаем поле для кеапель
 	c.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
+	// запускаем цикл для обновления всех капель из массива
 	for (let i = 0; i < rainArray.length; i++) {
 		rainArray[i].update();
 	}
